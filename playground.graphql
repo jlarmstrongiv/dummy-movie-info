@@ -1,0 +1,19 @@
+# query learnt from day-two
+query {
+  movies {
+    name
+    description
+    actors {
+      id
+      name
+    }
+  }
+}
+
+query {
+  actors (where: {
+    name_starts_with: "a"
+  }) {
+    name
+  }
+}

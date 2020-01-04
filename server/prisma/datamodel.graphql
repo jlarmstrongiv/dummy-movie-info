@@ -1,0 +1,28 @@
+type Movie {
+  id: ID! @id
+  name: String!
+  posterURL: String!
+  description: String!
+  year: Int
+  rating: Int 
+  director: Director! @relation(name: "MovieToDirectors")
+  actors: [Actor!]! @relation(name: "MovieToActors", onDelete: CASCADE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Director {
+  id: ID! @id
+  name: String!
+  movieAlbum: [Movie!]! @relation(name: "MovieToDirectors", onDelete: CASCADE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Actor {
+  id: ID! @id
+  name: String!
+  movieAlbum: [Movie!]! @relation(name: "MovieToActors", onDelete: CASCADE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
